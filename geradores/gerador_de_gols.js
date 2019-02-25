@@ -1,11 +1,11 @@
 
 class GeradorDeGols{
 
-	static gerar(){
+    static gerar(){
 
-		let limite = 5;
+        let limite = 5;
 
-		return Math.floor(Math.random() * limite) + 1 ;
-	}
+        return Math.floor(Math.random() * limite) + 1 ;
+    }
 
 }

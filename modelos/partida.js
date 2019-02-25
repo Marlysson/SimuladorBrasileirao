@@ -1,18 +1,18 @@
 
 class Partida{
 
-	constructor(mandante, visitante, rodada){
-		this.mandante = mandante;
-		this.visitante = visitante;
-		this.rodada = rodada;
+    constructor(mandante, visitante, rodada){
+        this.mandante = mandante;
+        this.visitante = visitante;
+        this.rodada = rodada;
 
-		this.gols_mandante = 0;
-		this.gols_visitante = 0;
-	}
+        this.gols_mandante = 0;
+        this.gols_visitante = 0;
+    }
 
-	getEstado(){
-		return this.mandante.estado;
-	}
+    getEstado(){
+        return this.mandante.estado;
+    }
 
 }
 

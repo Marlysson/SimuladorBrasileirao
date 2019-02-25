@@ -1,11 +1,11 @@
 
 class Rodada{
 
-	constructor(descricao){
-		this.descricao = descricao;
-		this.partidas = [];
-		this.turno = 'PRIMEIRO TURNO';
-	}
+    constructor(descricao){
+        this.descricao = descricao;
+        this.partidas = [];
+        this.turno = 'PRIMEIRO TURNO';
+    }
 
 }
 
