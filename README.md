@@ -15,3 +15,24 @@
 - Animação quando um time perder posição devido ao resutlado;
     - Podendo ser perder posição ou subir na tabela
 - Gráfico de evolução por time visualizando a relação **Posição por Rodada**
+
+## Modelos
+
+- Team
+    - name
+    - logo
+    - position
+    - points
+    - games
+    - victories
+    - goal_pro
+    - balance_goals
+
+- Game
+    - team_visitor
+    - team_home
+    - goal_visitor
+    - goal_home
+    - day
+    - hour
+    - place
