@@ -35,4 +35,4 @@
     - goal_home
     - day
     - hour
-    - place
+    - stadium
