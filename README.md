@@ -1,6 +1,6 @@
 # Simulador do Brasileirão
 
-![Tela do simulador](screenshot.png)
+![Tela do simulador](app.gif)
 
 ## Funcionalidades a serem implementadas
 
