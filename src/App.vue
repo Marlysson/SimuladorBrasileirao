@@ -11,14 +11,7 @@
       
       
       <div class="container-ranking">
-
-        <h3 class="ranking-title">Tabela</h3>
-
-        <div class="ranking-table">
-          <Ranking :teams="first" />
-          <Ranking :teams="second" />
-        </div>
-
+        <Ranking title="Tabela" />
       </div>
 
       <div class="container-games">
@@ -40,29 +33,12 @@ import SubHeader from './components/texts/SubHeader.vue';
 import CaptionRanking from './components/CaptionRanking.vue';
 import Ranking from './components/Ranking.vue';
 
-// Services
-import TeamGenerator from './services/generators/teams.js'
-
-let teams = TeamGenerator.generate()
-
 export default {
   name: 'App',
   components: {
     Header, SubHeader,
     CaptionRanking,
     Ranking
-  },
-
-  data(){
-      return {
-          first: [],
-          second: []
-      }
-  },
-
-  mounted(){    
-    this.first = teams.slice(0, 10)
-    this.second = teams.slice(10)
   }
 
 }
@@ -94,19 +70,6 @@ export default {
   width:60%;
   display:flex;
   flex-direction: column;
-}
-
-.ranking-table{
-  display:flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-.ranking-title{
-  font-size:15px;
-  color:#34495e;
-  text-transform:uppercase;
-  padding-bottom:10px;
 }
 
 .container-games{
