@@ -10,9 +10,5 @@ class Partida{
         this.gols_visitante = 0;
     }
 
-    getEstado(){
-        return this.mandante.estado;
-    }
-
 }
 
