@@ -1,7 +1,7 @@
 <template>
   <div id="app">    
 
-    <Header texto="Simulador do Brasileirão 2020"/>
+    <Header part1="Simulador do " part2="Brasileirão 2020"/>
 
     <SubHeader texto="Simule os resultados dos jogos do Brasileirão 2020, 
                     e tente adivinhar o campeão, quais times vão à Libertadores e à 
@@ -9,10 +9,15 @@
 
     <div class="containers">
       
-      <div class="container-ranking">
       
-        <Ranking :teams="first" />
-        <Ranking :teams="second" />
+      <div class="container-ranking">
+
+        <h3 class="ranking-title">Tabela</h3>
+
+        <div class="ranking-table">
+          <Ranking :teams="first" />
+          <Ranking :teams="second" />
+        </div>
 
       </div>
 
@@ -29,11 +34,16 @@
 
 <script>
 
+// Components
 import Header from './components/texts/Header.vue';
 import SubHeader from './components/texts/SubHeader.vue';
 import CaptionRanking from './components/CaptionRanking.vue';
 import Ranking from './components/Ranking.vue';
-import TEAMS  from './services/data.js';
+
+// Services
+import TeamGenerator from './services/generators/teams.js'
+
+let teams = TeamGenerator.generate()
 
 export default {
   name: 'App',
@@ -51,26 +61,10 @@ export default {
   },
 
   mounted(){    
-        
-    for (let index = 0; index < 20; index++) {
-
-        let current_team = TEAMS[index];
-
-        let team = {
-            "name" : current_team.name,
-            "position" : index + 1
-        }
-
-        if ( this.first.length < 10 ){
-          this.first.push(team);
-        }else{
-          this.second.push(team);
-        }
-    }
-
-    console.log(this.first);
-    console.log(this.second);
+    this.first = teams.slice(0, 10)
+    this.second = teams.slice(10)
   }
+
 }
 </script>
 
@@ -92,15 +86,27 @@ export default {
 .containers{
   display: flex;
   flex-direction: row;
-  margin:40px auto 30px;
+  margin:60px auto 10px;
   height:400px;
 }
 
 .container-ranking{
+  width:60%;
+  display:flex;
+  flex-direction: column;
+}
+
+.ranking-table{
   display:flex;
   flex-direction: row;
   justify-content: space-between;
-  width:60%;
+}
+
+.ranking-title{
+  font-size:15px;
+  color:#34495e;
+  text-transform:uppercase;
+  padding-bottom:10px;
 }
 
 .container-games{

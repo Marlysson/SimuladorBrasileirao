@@ -1,19 +1,23 @@
 <template>
-    <h2>{{ texto }}</h2>
+    <div class="title">
+        <span>{{ part1 }}</span>
+        <span style="color:#16a085;">{{ part2 }}</span>
+    </div>
 </template>
 
 <script>
 
 export default {
-    props : ["texto"]
+    props : ["part1", "part2"]
 }
 
 </script>
 <style scoped>
 
-    h2{
-        color:#2c3e50;
+    .title{
+        color:#34495e;
         font-size:50px;
+        font-weight: 900;
         text-align:center;
         margin:20px auto 10px;
     }

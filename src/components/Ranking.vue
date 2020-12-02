@@ -17,7 +17,7 @@
                
                 <td class="team">
                     
-                    <span class="position" style="color: #1abc9c;">
+                    <span class="position">
                         {{team.position}}
                     </span> 
                     
