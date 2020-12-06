@@ -9,13 +9,12 @@
 
     <div class="containers">
       
-      
       <div class="container-ranking">
         <Ranking title="Tabela" />
       </div>
 
       <div class="container-games">
-
+        <Rounds title="Rodadas"/>
       </div>
 
     </div>    
@@ -32,13 +31,14 @@ import Header from './components/texts/Header.vue';
 import SubHeader from './components/texts/SubHeader.vue';
 import CaptionRanking from './components/CaptionRanking.vue';
 import Ranking from './components/Ranking.vue';
+import Rounds from './components/Rounds.vue';
 
 export default {
   name: 'App',
   components: {
     Header, SubHeader,
     CaptionRanking,
-    Ranking
+    Ranking, Rounds
   }
 
 }
@@ -62,12 +62,13 @@ export default {
 .containers{
   display: flex;
   flex-direction: row;
-  margin:60px auto 10px;
+  justify-content: space-between;
+  margin:50px auto 15px;
   height:400px;
 }
 
 .container-ranking{
-  width:60%;
+  width:55%;
   display:flex;
   flex-direction: column;
 }

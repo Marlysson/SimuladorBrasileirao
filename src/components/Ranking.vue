@@ -2,7 +2,7 @@
 
     <div>
     
-        <h3 class="ranking-title">{{ title }}</h3>
+        <h3 class="title-section">{{ title }}</h3>
 
         <div class="ranking-table">
             <RankingSection :teams="first" />
@@ -23,10 +23,10 @@ import TeamGenerator from '../services/generators/teams.js'
 
 export default {
 
-    components : { RankingSection }, 
-    
     props : ["title"],
 
+    components : { RankingSection }, 
+    
     data(){
         return {
             first: [],
@@ -35,11 +35,8 @@ export default {
     },
 
     mounted(){    
-
-        let teams = TeamGenerator.generate()
-
-        this.first = teams.slice(0, 10)
-        this.last = teams.slice(10)
+        this.first = TeamGenerator.first()
+        this.last = TeamGenerator.last()
     }
 }
 
@@ -48,17 +45,12 @@ export default {
 
 <style scoped>
 
+    @import "../assets/common.css";
+
     .ranking-table{
         display:flex;
         flex-direction: row;
         justify-content: space-between;
-    }
-
-    .ranking-title{
-        font-size:15px;
-        color:#34495e;
-        text-transform:uppercase;
-        padding-bottom:10px;
     }
 
 </style>
