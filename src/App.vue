@@ -19,8 +19,6 @@
 
     </div>    
 
-    <CaptionRanking />
-
   </div>
 </template>
 
@@ -29,7 +27,6 @@
 // Components
 import Header from './components/texts/Header.vue';
 import SubHeader from './components/texts/SubHeader.vue';
-import CaptionRanking from './components/CaptionRanking.vue';
 import Ranking from './components/Ranking.vue';
 import Rounds from './components/Rounds.vue';
 
@@ -37,7 +34,6 @@ export default {
   name: 'App',
   components: {
     Header, SubHeader,
-    CaptionRanking,
     Ranking, Rounds
   }
 
@@ -63,7 +59,7 @@ export default {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin:50px auto 15px;
+  margin:50px auto;
   height:400px;
 }
 

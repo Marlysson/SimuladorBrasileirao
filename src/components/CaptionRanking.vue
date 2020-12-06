@@ -60,7 +60,8 @@ export default {
         align-items: center;
 
         list-style-type: none;
-        width:700px;
+        width:100%;
+        margin-top:20px;
     }
 
     .caption-icon{

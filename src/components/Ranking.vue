@@ -9,6 +9,8 @@
             <RankingSection :teams="last" />
         </div>
         
+        <CaptionRanking />
+
     </div>
 
 </template>
@@ -17,6 +19,7 @@
 
 // Components
 import RankingSection from '../components/RankingSection.vue'
+import CaptionRanking from '../components/CaptionRanking.vue'
 
 // Services
 import TeamGenerator from '../services/generators/teams.js'
@@ -25,7 +28,7 @@ export default {
 
     props : ["title"],
 
-    components : { RankingSection }, 
+    components : { RankingSection, CaptionRanking }, 
     
     data(){
         return {
