@@ -1,5 +1,5 @@
 import Team from '../models/team.js'
-import TEAMS from '../data.js'
+import { TEAMS } from '../data.js'
 
 class Generator{
 

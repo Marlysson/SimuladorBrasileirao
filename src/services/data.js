@@ -102,4 +102,12 @@ const TEAMS = [
     
 ]
 
-export default TEAMS
+const COLOR_BY_RANKING = {
+    "libertadores" : "#3498db",
+    "pre_libertadores" : "#f1c40f",
+    "sul_americana" : "#1abc9c",
+    "rebaixamento" : "#e74c3c",
+    "nenhum" : "#bdc3c7"
+}
+
+export { TEAMS, COLOR_BY_RANKING }
