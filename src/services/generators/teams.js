@@ -5,6 +5,16 @@ class Generator{
 
     static teams = []
 
+    static first(){
+        let teams = Generator.generate()
+        return teams.slice(0,10)
+    }
+
+    static last(){
+        let teams = Generator.generate()
+        return teams.slice(10)
+    }
+
     static generate(){
         
         if ( Generator.teams.length > 0 ){
