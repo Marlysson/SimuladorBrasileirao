@@ -4,7 +4,7 @@
                
         <td class="team">
             
-            <span class="position">
+            <span class="position" v-bind:style="styleForPosition">
                 {{team.position}}
             </span> 
             
@@ -23,13 +23,29 @@
 </template>
 
 <script>
+
+import get_color_by_position from "../services/utils.js"
+
 export default {
-    props : ["team"]
+    props : ["team"],
+
+    data(){
+
+        return { 
+            styleForPosition : {
+                color: get_color_by_position(this.team.position)
+            }
+        }
+
+    }
+
 }
 
 </script>
 
 <style scoped>
+
+    @import '../assets/colors_by_position.css';
 
     td{ 
         color:#34495e;

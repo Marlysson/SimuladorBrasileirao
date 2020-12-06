@@ -3,7 +3,7 @@
     <ul class="caption-container">
         
         <li class="caption-ranking" v-for="championship in championship_by_ranking" :key="championship.ranking">
-            <span class="caption-icon" v-bind:class="championship.color"></span>
+            <span class="caption-icon" v-bind:style="{ background : championship.color }"></span>
             <span class="caption-text">{{ championship.ranking}}</span>
         </li>
 
@@ -13,6 +13,8 @@
 
 <script>
 
+import { COLOR_BY_RANKING } from '../services/data.js'
+
 export default {
     
     data(){
@@ -21,20 +23,24 @@ export default {
             
             championship_by_ranking : [
                 {
-                    "color": "blue",
+                    "color": COLOR_BY_RANKING['libertadores'],
                     "ranking": "Libertadores"
                 },
                 {
-                    "color": "yellow",
+                    "color": COLOR_BY_RANKING['pre_libertadores'],
                     "ranking": "Pré-Libertadores"
                 },
                 {
-                    "color": "green",
+                    "color": COLOR_BY_RANKING['sul_americana'],
                     "ranking": "Sul-Americana"
                 },
                 {
-                    "color": "red",
-                    "ranking": "Rebaixados"
+                    "color": COLOR_BY_RANKING['rebaixamento'],
+                    "ranking": "Rebaixamento"
+                },
+                {
+                    "color": COLOR_BY_RANKING['nenhum'],
+                    "ranking": "Sem alteração"
                 }
             ]
         }
@@ -44,7 +50,9 @@ export default {
 </script>
 
 <style scoped>
-    
+
+    @import '../assets/colors_by_position.css';
+
     .caption-container{
         display:flex;
         flex-direction:row;
@@ -52,7 +60,7 @@ export default {
         align-items: center;
 
         list-style-type: none;
-        width:600px;
+        width:700px;
     }
 
     .caption-icon{
@@ -65,13 +73,7 @@ export default {
 
     .caption-text{
         font-size:15px;
-        letter-spacing: 0.5px;
         color: #34495e;
     }
-
-    .green  { background: #1abc9c; }
-    .blue   { background: #3498db; }
-    .yellow { background:#f1c40f; }
-    .red    { background: #e74c3c; }
 
 </style>
