@@ -1,49 +1,53 @@
 
-class GeradorDeRodadas{
+import Round from "../../models/round.js";
 
-    constructor(times){
-        this.times = times;
+class Generator{
 
-        this.partidas = [];
-        this.rodadas = [];
-    }
+    /* 
+    
+    Abstract representation
 
-    quantidadeDeRodadasTurno(){
-        return (this.times.length - 1) * 2;
-    }
+    Rounds  > 1
+                > Games
+                    > Game1
+                    ...
+                    > Game10
+            > 2
+            ...
+            > 38
 
-    get qtd_rodadas_turno(){
-        return this.quantidadeDeRodadasTurno();
-    }
-
-    gerar(){
-
-        var quantidade_todadas = this.quantidadeDeRodadasTurno();
-        var posicao_ultimo_time = times.length - 1;
-        var total_times = this.times.length;
-
-        for( var posicao_atual = 0 ; posicao_atual < posicao_ultimo_time ; posicao_atual++ ){
-
-            for( var pos_time_visitante = posicao_atual + 1; pos_time_visitante < total_times; pos_time_visitante++ ){
-                
-                var mandante = this.times[posicao_atual];
-                var visitante = this.times[pos_time_visitante];
-
-                let partida = GeradorDePartida.gerar(mandante, visitante, null);
-
-                this.partidas.push(partida);
-
-            }
-
+    Programming representation
+    
+        1 : {
+            "games" : [Game1, Game2..., Game10]
+        },
+        2 : {
+            "games" : [Game1, Game2..., Game10]
+        },
+        3 : {
+            "games" : [Game1, Game2..., Game10]
         }
 
-        return this.partidas;
+    */
+
+   
+   static generate(teams){
+       
+       let rounds = []  
+
+        var total_rounds = (teams.length - 1) * 2;
         
-        // GERAR LISTA COM OBJETOS "RODADA"
+        for ( let sequence = 1; sequence <= total_rounds; sequence++){            
+            rounds.push(new Round(sequence))
+        }
+
+        // GERAR LISTA COM OBJETOS "RODADA" OK
         // GERAR LISTA COM OBJETOS "PARTIDA"
-        // DEFININDO OS GOLS DO MANDANTE E VISITANTE
         // RETORNAR LISTA 
 
+        return rounds
     }
 
 }
+
+export default Generator

@@ -1,9 +1,13 @@
 
 class Round{
 
-    constructor(description){
-        this.description = description;
+    constructor(sequence){
+        this.sequence = sequence;
         this.games = [];
+    }
+
+    add(game){
+        this.games.push(game)
     }
 
 }

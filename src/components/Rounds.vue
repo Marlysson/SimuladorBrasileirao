@@ -4,11 +4,24 @@
         <h2 class="title-section">{{title}}</h2>
 
         <div class="round-steps">
-            <ArrowLeftIcon class="round-navigator" />
-            <span class="round-description">1ª RODADA</span>
-            <ArrowRightIcon class="round-navigator" />
+            
+            <ArrowLeftIcon 
+                class="round-navigator" 
+                v-bind:class="{ hide : round.sequence == 1}"
+                @click="prev" 
+            />
+
+            <span class="round-description">{{ round.sequence }}ª RODADA</span>
+           
+            <ArrowRightIcon 
+                class="round-navigator" 
+                @click="next" 
+            />
+
         </div>
-    
+
+         {{ round.sequence }}
+
     </div>
 
 </template>
@@ -19,11 +32,21 @@ import { ArrowLeftIcon, ArrowRightIcon } from 'vue-feather-icons'
 
 export default {
 
-    props : ["title"],
+    props : ["title", "round"],
 
     components: {
         ArrowRightIcon,
         ArrowLeftIcon
+    },
+
+    methods: {
+        prev(){
+            this.$emit("navigate", "prev")
+        },
+        
+        next(){
+            this.$emit('navigate', "next")
+        }
     }
 
 }
@@ -59,6 +82,10 @@ export default {
         margin:0 10px;
         width:23px;
         height:23px;
+    }
+
+    .hide{
+        visibility: hidden;
     }
 
 </style>

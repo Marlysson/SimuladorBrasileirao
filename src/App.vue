@@ -11,12 +11,14 @@
       
       <div class="container-ranking">
         
-        <Ranking title="Tabela" :teams="championship.ranking" />
+        <Ranking title="Tabela" :teams="championship.teams" />
 
       </div>
 
       <div class="container-games">
-        <Rounds title="Rodadas"/>
+        <Rounds title="Rodadas" 
+                :round="round"
+                @navigate="navigate" />
       </div>
 
     </div>    
@@ -45,12 +47,28 @@ export default {
 
   data(){
     return {
-      championship: null
+      championship: null,
+      round: null
     }
+  },
+
+  methods: {
+
+      navigate: function(type){
+
+          if ( type == 'prev'){
+            this.round = this.championship.prevRound()
+
+          }else if ( type == 'next') {
+            this.round = this.championship.nextRound()
+          }
+          
+      }
   },
 
   beforeMount(){
       this.championship = Championship.new()
+      this.round = this.championship.currentRound()
   }
 
 }
