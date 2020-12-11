@@ -15,8 +15,8 @@
         <td class="statistics points">{{ team.points }}</td>
         <td class="statistics">{{ team.games }}</td>
         <td class="statistics">{{ team.victories }}</td>
-        <td class="statistics">{{ team.goals_pro }}</td>
         <td class="statistics">{{ team.balance_goals }}</td>
+        <td class="statistics">{{ team.goals_pro }}</td>
 
     </tr>
 
@@ -24,9 +24,10 @@
 
 <script>
 
-import get_color_by_position from "../services/utils.js"
+import { get_color_by_position } from "../services/utils.js"
 
 export default {
+
     props : ["team"],
 
     data(){
@@ -75,8 +76,10 @@ export default {
     }
     
     .position{
-        padding-right:10px;
+        margin-right:10px;
         font-weight:500;
+        width:15px;
+        display:inline-block;
     }
 
 </style>

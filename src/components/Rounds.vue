@@ -5,7 +5,7 @@
 
         <div class="round-steps">
             <ArrowLeftIcon class="round-navigator" />
-            <span class="round-description">3ª RODADA</span>
+            <span class="round-description">1ª RODADA</span>
             <ArrowRightIcon class="round-navigator" />
         </div>
     

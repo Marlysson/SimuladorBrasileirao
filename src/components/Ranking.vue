@@ -21,28 +21,16 @@
 import RankingSection from '../components/RankingSection.vue'
 import CaptionRanking from '../components/CaptionRanking.vue'
 
-// Services
-import TeamGenerator from '../services/generators/teams.js'
-
 export default {
-
-    props : ["title"],
-
-    components : { RankingSection, CaptionRanking }, 
+    props : ["title", "teams"],
+    components : { RankingSection, CaptionRanking },
     
-    data(){
-        return {
-            first: [],
-            last: []
-        }
-    },
-
-    mounted(){    
-        this.first = TeamGenerator.first()
-        this.last = TeamGenerator.last()
+    beforeMount(){
+        this.first = this.teams.slice(0,10),
+        this.last  = this.teams.slice(10)
     }
-}
 
+}
 
 </script>
 

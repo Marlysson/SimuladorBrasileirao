@@ -10,7 +10,9 @@
     <div class="containers">
       
       <div class="container-ranking">
-        <Ranking title="Tabela" />
+        
+        <Ranking title="Tabela" :teams="championship.ranking" />
+
       </div>
 
       <div class="container-games">
@@ -25,16 +27,30 @@
 <script>
 
 // Components
-import Header from './components/texts/Header.vue';
-import SubHeader from './components/texts/SubHeader.vue';
+import Header from './components/Header.vue';
+import SubHeader from './components/SubHeader.vue';
 import Ranking from './components/Ranking.vue';
 import Rounds from './components/Rounds.vue';
 
+// Services
+import Championship from './models/championship.js'
+
 export default {
   name: 'App',
+  
   components: {
     Header, SubHeader,
     Ranking, Rounds
+  },
+
+  data(){
+    return {
+      championship: null
+    }
+  },
+
+  beforeMount(){
+      this.championship = Championship.new()
   }
 
 }
