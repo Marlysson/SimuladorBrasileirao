@@ -1,5 +1,6 @@
 
 class Team{
+    
     constructor(name, initial, logo){
         this.name = name
         this.inicial = initial

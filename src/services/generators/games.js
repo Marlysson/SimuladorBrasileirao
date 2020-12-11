@@ -1,15 +1,12 @@
 
-class GeradorDePartida{
+import Game from '../../models/game.js'
 
-    static gerar(mandante, visitante, rodada){
-        
-        let partida = new Partida(mandante, visitante, rodada);
+class Generator{
 
-        partida.gols_mandante = GeradorDeGols.gerar();
-        partida.gols_visitante = GeradorDeGols.gerar();
-
-        return partida;
-    
+    static generate(team_owner, team_visitor){        
+        return new Game(team_owner, team_visitor);
     }
     
 }
+
+export default Generator
