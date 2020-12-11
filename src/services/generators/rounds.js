@@ -1,5 +1,6 @@
 
 import Round from "../../models/round.js";
+// import GameGenerator from '../generators/games.js'
 
 class Generator{
 
@@ -33,19 +34,30 @@ class Generator{
    
    static generate(teams){
        
-       let rounds = []  
+        let rounds = []  
 
-        var total_rounds = (teams.length - 1) * 2;
-        
-        for ( let sequence = 1; sequence <= total_rounds; sequence++){            
-            rounds.push(new Round(sequence))
+        let total_rounds = (teams.length - 1) * 2;
+
+        for ( let sequence = 1; sequence <= total_rounds; sequence++){   
+            
+            let round = new Round(sequence)
+
+            if ( sequence == 1){
+                round.first()
+            }
+
+            if ( sequence == total_rounds ){
+                round.last()
+            }
+
+            rounds.push(round)
+            
+            // GERAR LISTA COM OBJETOS "PARTIDA"
+
         }
 
-        // GERAR LISTA COM OBJETOS "RODADA" OK
-        // GERAR LISTA COM OBJETOS "PARTIDA"
-        // RETORNAR LISTA 
-
         return rounds
+
     }
 
 }

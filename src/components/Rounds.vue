@@ -7,15 +7,16 @@
             
             <ArrowLeftIcon 
                 class="round-navigator" 
-                v-bind:class="{ hide : round.sequence == 1}"
-                @click="prev" 
+                v-bind:class="{ hide : round.isFirst }"
+                @click="$emit('navigate', 'prev')" 
             />
 
             <span class="round-description">{{ round.sequence }}ª RODADA</span>
            
             <ArrowRightIcon 
                 class="round-navigator" 
-                @click="next" 
+                v-bind:class="{ hide : round.isLast }"
+                @click="$emit('navigate', 'next')"
             />
 
         </div>
@@ -40,12 +41,8 @@ export default {
     },
 
     methods: {
-        prev(){
-            this.$emit("navigate", "prev")
-        },
-        
-        next(){
-            this.$emit('navigate', "next")
+        navigate(type){
+            this.$emit("navigate", type)
         }
     }
 
