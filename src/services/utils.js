@@ -34,35 +34,35 @@ let update_statistics_for_game = function(game){
 
     let balanced_goals = (goals_pro, goals_con) => goals_pro - goals_con
 
-    let team_owner = game.team_owner
-    let team_visitor = game.team_visitor
+    let team_home = game.team_home
+    let team_away = game.team_away
 
-    team_owner.games += 1
-    team_owner.goals_pro += game.goals_owner
-    team_owner.balance_goals += balanced_goals(game.goals_owner, game.goals_visitor)
+    team_home.games += 1
+    team_home.goals_pro += game.goals_owner
+    team_home.balance_goals += balanced_goals(game.goals_owner, game.goals_visitor)
     
-    team_visitor.games += 1
-    team_visitor.goals_pro += game.goals_visitor
-    team_visitor.balance_goals += balanced_goals(game.goals_visitor, game.goals_owner)
+    team_away.games += 1
+    team_away.goals_pro += game.goals_visitor
+    team_away.balance_goals += balanced_goals(game.goals_visitor, game.goals_owner)
 
     if ( game.goals_owner > game.goals_visitor ){
-        team_owner.points += 3
-        team_owner.victories += 1
+        team_home.points += 3
+        team_home.victories += 1
     } 
     
     else if ( game.goals_visitor > game.goals_owner ){
-        team_visitor.points += 3
-        team_visitor.victories += 1
+        team_away.points += 3
+        team_away.victories += 1
     } 
     
     else {
-        team_owner.points += 1
-        team_visitor.points += 1
+        team_home.points += 1
+        team_away.points += 1
     }
 
     return {
-        team_owner, 
-        team_visitor
+        team_home, 
+        team_away
     }
 
 }

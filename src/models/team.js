@@ -12,6 +12,10 @@ class Team{
         this.goals_pro = 0
         this.balance_goals = 0
     }
+
+    equal(team){
+        return this.name == team.name
+    }
 }
 
 export default Team

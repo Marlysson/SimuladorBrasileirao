@@ -16,11 +16,6 @@ class Round{
     last(){
         this.isLast = true
     }
-
-    add(game){
-        this.games.push(game)
-    }
-
 }
 
 export default Round
