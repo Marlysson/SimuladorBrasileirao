@@ -15,6 +15,7 @@
 - Animação quando um time perder posição devido ao resutlado;
     - Podendo ser perder posição ou subir na tabela
 - Gráfico de evolução por time visualizando a relação **Posição por Rodada**
+- Criação de ligas para competição entre usuários de placares mais acertados
 
 ## Modelos
 
