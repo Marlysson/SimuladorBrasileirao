@@ -15,8 +15,12 @@
 - Animação quando um time perder posição devido ao resutlado;
     - Podendo ser perder posição ou subir na tabela
 - Gráfico de evolução por time visualizando a relação **Posição por Rodada**
-- Criação de ligas para competição entre usuários de placares mais acertados
-
+- Competição entre usuários a partir da criação de ligas ( vide CartolaFC )
+    - Com critérios de ranking ponderado por acerto
+        - Acertar o vencedor
+        - Acertar o placar
+        - Acertar por quanto será a vitoria/derrota/empate
+    
 ## Modelos
 
 - Team
