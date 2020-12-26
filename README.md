@@ -15,7 +15,12 @@
 - Animação quando um time perder posição devido ao resutlado;
     - Podendo ser perder posição ou subir na tabela
 - Gráfico de evolução por time visualizando a relação **Posição por Rodada**
-
+- Competição entre usuários a partir da criação de ligas ( vide CartolaFC )
+    - Com critérios de ranking ponderado por acerto
+        - Acertar o vencedor ( pontuação x )
+        - Acertar o placar ( pontuação y ) 
+        - Acertar por quanto será a vitoria/derrota/empate ( pontuação z )
+    
 ## Modelos
 
 - Team
