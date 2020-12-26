@@ -6,16 +6,16 @@ class Game{
         this.away = away;
         this.goals_home = 0;
         this.goals_away = 0;
-    }
 
-    swap(){
-        return new Game(this.away, this.home)
+        this.day = undefined;
+        this.week = undefined;
+        this.hour = undefined;
+        
+        this.stadium = undefined;
+        this.country = undefined;
+        this.initials_county = undefined;
     }
-
-    equal(game){
-        return game.home.equal(this.home) && game.away.equal(this.away)
-    }
-
+    
 }
 
 export default Game
