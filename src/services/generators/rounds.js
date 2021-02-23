@@ -1,6 +1,6 @@
-
+import Football from "../football.js";
+import Match from "../../models/match.js";
 import Round from "../../models/round.js";
-import GameGenerator from '../generators/games.js'
 
 class Generator{
 
@@ -31,8 +31,29 @@ class Generator{
 
     */
     
-    static generate(){
-        return conteudo
+    static async generate(){ 
+
+        let fetchedRounds = await Football.rounds();
+
+        let rounds = {};
+
+        for ( let round in fetchedRounds ){
+
+            let fetchedMatches = fetchedRounds[round];
+
+            if ( rounds[round] == null ) {
+                rounds[round] = new Round(round);
+            }
+
+            for ( let match of fetchedMatches ){
+                let matchModel = Match.transform(match);
+                rounds[round].push(matchModel);
+            }
+
+        }
+
+        return rounds;
+
     }
 }
 

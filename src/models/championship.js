@@ -5,12 +5,11 @@ class Championship{
 
     static teams = null
     static rounds = null
-    static round = 0
+    static round = 1
 
-    static new(){
+    static async new(){
         Championship.teams = TeamGenerator.generate()
-        Championship.rounds  = RoundGenerator.generate(Championship.teams)
-        
+        Championship.rounds = await RoundGenerator.generate()
         return Championship
     }
 

@@ -12,7 +12,7 @@ class Football{
     static matchesEndpoint = `competitions/${Football.competition}/matches`;
     static classificationEndpoint = `competitions/${Football.competition}/standings`;
 
-    static async classification(){
+    static classification(){
         // todo
     }
 
@@ -39,9 +39,8 @@ class Football{
             }
     
             let result = await client.get(resource);
+            let rounds = {};
             
-            let rounds = {}
-
             for( let match of result.data.matches ){            
                 
                 let currentMatch = {}
@@ -76,7 +75,6 @@ class Football{
                     currentMatch.score.away = score.fullTime.awayTeam;
 
                 }
-     
                 currentMatch.status = statusMatch[match.status]
 
                 if ( rounds[match.matchday] == null ) {

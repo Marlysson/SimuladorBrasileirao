@@ -2,20 +2,17 @@
 class Round{
 
     constructor(sequence){
-        this.sequence = sequence;
+        this.sequence = parseInt(sequence);
         this.games = [];
         
-        this.isLast = false
-        this.isFirst = false
+        this.isFirst = this.sequence == 1;
+        this.isLast = this.sequence == 38;
     }
 
-    first(){
-        this.isFirst = true
+    push(match){
+        this.games.push(match);
     }
 
-    last(){
-        this.isLast = true
-    }
 }
 
 export default Round

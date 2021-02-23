@@ -21,7 +21,7 @@
 
         </div>
 
-         {{ round.sequence }}
+         {{ round.games.slice(0,2) }}
 
     </div>
 

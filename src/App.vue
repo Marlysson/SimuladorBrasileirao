@@ -10,13 +10,16 @@
     <div class="containers">
       
       <div class="container-ranking">
-        
-        <Ranking title="Tabela" :teams="championship.teams" />
-
+        <div class="loading" v-if="championship == null">Loading...</div>
+        <Ranking title="Tabela" :teams="championship.teams" v-if="championship != null"/>
       </div>
 
       <div class="container-games">
-        <Rounds title="Rodadas" 
+        
+        <div class="loading" v-if="championship == null">Loading...</div>
+        
+        <Rounds title="Rodadas"
+                v-if="championship != null"
                 :round="round"
                 @navigate="navigate" />
       </div>
@@ -66,9 +69,9 @@ export default {
       }
   },
 
-  beforeMount(){
-      this.championship = Championship.new()
-      this.round = this.championship.currentRound()
+  async beforeMount(){
+      this.championship = await Championship.new();
+      this.round = this.championship.currentRound();
   }
 
 }
@@ -98,13 +101,20 @@ export default {
 }
 
 .container-ranking{
-  width:55%;
+  width:705px;
   display:flex;
   flex-direction: column;
+  justify-content: center;
+}
+
+.loading{
+  align-self:center;
+  /* justify-self: center; */
 }
 
 .container-games{
-  width:40%;
+  width:495px; /* 45% */
+  overflow:hidden;
 }
 
 </style>
