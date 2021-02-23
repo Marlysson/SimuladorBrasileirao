@@ -1,5 +1,5 @@
 
-import Game from '../../models/game.js'
+import Game from "../../models/game.js"
 
 class Generator{
 

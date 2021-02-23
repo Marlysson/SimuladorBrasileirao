@@ -1,5 +1,5 @@
-import TeamGenerator from '../services/generators/teams.js'
-import RoundGenerator from '../services/generators/rounds.js'
+import TeamGenerator from "../services/generators/teams.js"
+import RoundGenerator from "../services/generators/rounds.js"
 
 class Championship{
 

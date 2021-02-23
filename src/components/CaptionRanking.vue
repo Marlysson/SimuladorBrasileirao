@@ -1,7 +1,7 @@
 <template>
     
     <ul class="caption-container">
-        
+            
         <li class="caption-ranking" v-for="championship in championship_by_ranking" :key="championship.ranking">
             <span class="caption-icon" v-bind:style="{ background : championship.color }"></span>
             <span class="caption-text">{{ championship.ranking}}</span>
@@ -13,7 +13,7 @@
 
 <script>
 
-import { COLOR_BY_RANKING } from '../services/data.js'
+import COLOR_BY_RANKING from '../data/colors.js'
 
 export default {
     

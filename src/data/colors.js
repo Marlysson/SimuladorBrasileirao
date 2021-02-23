@@ -6,4 +6,4 @@ const COLOR_BY_RANKING = {
     "nenhum" : "#bdc3c7"
 }
 
-export default COLORS_BY_RANKING
+export default COLOR_BY_RANKING

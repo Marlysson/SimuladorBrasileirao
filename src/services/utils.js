@@ -1,9 +1,9 @@
-import { COLOR_BY_RANKING } from './data.js'
+import COLOR_BY_RANKING from "../data/colors.js"
 
 let get_color_by_position = function(position){
 
     if ( position <= 4 ){
-        return COLOR_BY_RANKING['libertadores'];
+        return COLOR_BY_RANKING["libertadores"];
     }
 
     if ( position == 5 || position == 6 ){
