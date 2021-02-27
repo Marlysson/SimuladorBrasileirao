@@ -1,7 +1,8 @@
 <template>
     
     <div>
-        <h2 class="title-section">{{title}}</h2>
+
+        <h2 class="title-section">{{ title }}</h2>
 
         <div class="round-steps">
             
@@ -21,7 +22,9 @@
 
         </div>
 
-         {{ round.games.slice(0,2) }}
+        <div class="matches">
+            {{ round.games.slice(0,2) }}
+        </div>
 
     </div>
 
@@ -55,7 +58,7 @@ export default {
     @import "../assets/common.css";
 
     .round-steps{
-        width:100%;
+        width:495px;
         height:30px;
         background:#1abc9c;
         display:flex;

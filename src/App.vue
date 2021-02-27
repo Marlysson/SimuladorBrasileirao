@@ -10,18 +10,22 @@
     <div class="containers">
       
       <div class="container-ranking">
-        <div class="loading" v-if="championship == null">Loading...</div>
-        <Ranking title="Tabela" :teams="championship.teams" v-if="championship != null"/>
+
+        <Loading>
+          <Ranking title="Tabela" :teams="championship.teams" v-if="championship != null"/>
+        </Loading>
+
       </div>
 
       <div class="container-games">
-        
-        <div class="loading" v-if="championship == null">Loading...</div>
-        
-        <Rounds title="Rodadas"
-                v-if="championship != null"
-                :round="round"
-                @navigate="navigate" />
+
+        <Loading>
+          <Rounds title="Rodadas"
+                  v-if="championship != null"
+                  :round="round"
+                  @navigate="navigate" />
+        </Loading>        
+
       </div>
 
     </div>    
@@ -36,6 +40,7 @@ import Header from './components/Header.vue';
 import SubHeader from './components/SubHeader.vue';
 import Ranking from './components/Ranking.vue';
 import Rounds from './components/Rounds.vue';
+import Loading from './components/Loading.vue';
 
 // Services
 import Championship from './models/championship.js'
@@ -44,8 +49,11 @@ export default {
   name: 'App',
   
   components: {
-    Header, SubHeader,
-    Ranking, Rounds
+    Header, 
+    SubHeader,
+    Ranking,
+    Rounds,
+    Loading
   },
 
   data(){
@@ -102,14 +110,15 @@ export default {
 
 .container-ranking{
   width:705px;
+  height: 400px;
   display:flex;
   flex-direction: column;
   justify-content: center;
+  align-items:center;
 }
 
 .loading{
   align-self:center;
-  /* justify-self: center; */
 }
 
 .container-games{

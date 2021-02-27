@@ -10,7 +10,7 @@
         </div>
         
         <CaptionRanking />
-
+        
     </div>
 
 </template>
@@ -39,6 +39,7 @@ export default {
     @import "../assets/common.css";
 
     .ranking-table{
+        width:705px;
         display:flex;
         flex-direction: row;
         justify-content: space-between;
