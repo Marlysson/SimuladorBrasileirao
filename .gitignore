@@ -25,4 +25,7 @@ pnpm-debug.log*
 *.sw?
 package-lock.json
 
-back/__pycache__
+back/base/__pycache__/
+back/__pycache__/
+back/base/*/__pycache__/
+back/base/*/*/__pycache__/
