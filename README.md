@@ -4,6 +4,7 @@
 
 ## Funcionalidades a serem implementadas
 
+### V1
 - Geração de placares da rodada;
     - Manual
     - Automática
@@ -14,7 +15,8 @@
 - Classificação dos times por critério de desempate;
 - Animação quando um time perder posição devido ao resutlado;
     - Podendo ser perder posição ou subir na tabela
-- Gráfico de evolução por time visualizando a relação **Posição por Rodada**
+### V2
+
 - Competição entre usuários a partir da criação de ligas ( vide CartolaFC )
     - Com critérios de ranking ponderado por acerto
         - Acertar o vencedor ( pontuação x )
@@ -23,21 +25,6 @@
     
 ## Modelos
 
-- Team
-    - name
-    - logo
-    - position
-    - points
-    - games
-    - victories
-    - goal_pro
-    - balance_goals
+## Diagrama
 
-- Game
-    - team_visitor
-    - team_home
-    - goal_visitor
-    - goal_home
-    - day
-    - hour
-    - stadium
+![Diagrama do funcionamento](diagrama.png)
