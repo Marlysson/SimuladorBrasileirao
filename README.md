@@ -25,6 +25,8 @@
     
 ## Modelos
 
+![Models](models.png)
+
 ## Diagrama
 
-![Diagrama do funcionamento](diagrama.png)
+![Components](diagram.png)
