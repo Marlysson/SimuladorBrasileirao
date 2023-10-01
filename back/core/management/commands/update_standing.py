@@ -1,17 +1,17 @@
 from django.core.management.base import BaseCommand, CommandError
-from base.models import Team
-from base.integration.football_api import FootballApi
+from core.integration.resources import StandingResource
+from core.models import Team
 
 class Command(BaseCommand):
     help = "Update current season's standing"
 
     def handle(self, *args, **options):
         
-        standing = FootballApi.standing()
+        standing = StandingResource.get()
 
         for position in standing:
             
-            team = Team()
+            team = Team.objects.get(identifier=position["team"]["id"])
 
             team.position = position['position']
             team.name = position['team']['name']

@@ -26,9 +26,9 @@ class Match(models.Model):
     FINISHED = "FINISHED"
     TO_CONFIRM = "TO CONFIRM"
     
-    home = models.ForeignKey('Team', on_delete=models.CASCADE, related_name="home_matches")
-    away = models.ForeignKey('Team', on_delete=models.CASCADE, related_name="away_matches")
-    round = models.ForeignKey(Round, on_delete=models.CASCADE, related_name="matches")
+    home = models.ForeignKey('Team', on_delete=models.DO_NOTHING, related_name="home_matches")
+    away = models.ForeignKey('Team', on_delete=models.DO_NOTHING, related_name="away_matches")
+    round = models.ForeignKey(Round, on_delete=models.DO_NOTHING, related_name="matches")
     goals_home = models.IntegerField(null=True)
     goals_away = models.IntegerField(null=True)
 

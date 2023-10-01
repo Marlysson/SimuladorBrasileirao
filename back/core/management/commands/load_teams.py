@@ -7,7 +7,7 @@ class Command(BaseCommand):
     help = "Load initial Teams from Season's Competition"
 
     def clean_name(self, team):
-        removes = ["FBPA", "FC", "EC", "FR", "FBC", "CR", "CA", "SE", "SC"]
+        removes = ["FBPA", "FC", "EC", "FR", "FBC", "CR", "CA", "SE", "SC", "Paulista"]
         name = team["name"]
 
         for remove in removes:
