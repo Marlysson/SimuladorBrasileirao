@@ -38,6 +38,8 @@ class Match(models.Model):
 
 
 class Team(models.Model):
+    
+    identifier = models.IntegerField(null=True)
     name = models.CharField(max_length=255)
     image = models.URLField()
     position = models.IntegerField()
