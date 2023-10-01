@@ -4,11 +4,17 @@ from django.db import models
 class Season(models.Model):
     year = models.IntegerField()
 
+    class Meta:
+        db_table = "season"
+
 
 class Round(models.Model):
     number = models.IntegerField() 
     season = models.ForeignKey(Season, on_delete=models.CASCADE)
     closed = models.BooleanField(default=False) # Avoid updated after round is closed
+
+    class Meta:
+        db_table = "round"
 
 
 class Match(models.Model):
@@ -27,6 +33,9 @@ class Match(models.Model):
 
     status = models.CharField(max_length=255, default=SCHEDULED)
 
+    class Meta:
+        db_table = "match"
+
 
 class Team(models.Model):
     name = models.CharField(max_length=255)
@@ -43,3 +52,4 @@ class Team(models.Model):
     
     class Meta:
         ordering = ['position']
+        db_table = "team"

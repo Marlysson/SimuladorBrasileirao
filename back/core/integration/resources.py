@@ -22,13 +22,19 @@ class Standing(Resource):
         return response.json()['standings'][0]['table']
 
 
-class Team(Resource):
+class TeamResource(Resource):
     competition_id = 2013
-    resource = "{base}/competitions/{competition_id}/teams"
+    resource = "{base}/competitions/{competition_id}/teams?season={year}"
 
     @classmethod
     def get(cls):
-        parameters = {"competition_id": cls.competition_id}
+        from datetime import date
+
+        parameters = {
+            "competition_id": cls.competition_id, 
+            "year": date.today().year
+        }
+
         response = cls.request(cls.resource, **parameters)
         return response.json()["teams"]
     

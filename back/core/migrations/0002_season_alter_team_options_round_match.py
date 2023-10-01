@@ -7,7 +7,7 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('base', '0001_initial'),
+        ('core', '0001_initial'),
     ]
 
     operations = [
@@ -28,7 +28,7 @@ class Migration(migrations.Migration):
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('number', models.IntegerField()),
                 ('closed', models.BooleanField(default=False)),
-                ('season', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='base.season')),
+                ('season', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='core.season')),
             ],
         ),
         migrations.CreateModel(
@@ -39,9 +39,9 @@ class Migration(migrations.Migration):
                 ('goals_away', models.IntegerField(default=0)),
                 ('date', models.DateTimeField()),
                 ('status', models.CharField(default='Scheduled', max_length=255)),
-                ('away', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='away_matches', to='base.team')),
-                ('home', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='home_matches', to='base.team')),
-                ('round', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='matches', to='base.round')),
+                ('away', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='away_matches', to='core.team')),
+                ('home', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='home_matches', to='core.team')),
+                ('round', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='matches', to='core.round')),
             ],
         ),
     ]
