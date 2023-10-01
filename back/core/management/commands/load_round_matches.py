@@ -1,8 +1,11 @@
+from django.db.models import Max, Min
 from django.core.management.base import BaseCommand, CommandError
+from django.utils import timezone
+
 from core.models import Season, Round, Team, Match
 from core.integration.resources import MatchesResource
+
 from datetime import datetime
-from django.utils import timezone
 
 class Command(BaseCommand):
     help = "Load initial Rounds/Matches from Season's Competition"
@@ -56,8 +59,19 @@ class Command(BaseCommand):
                 "goals_home": goals_home,
                 "goals_away": goals_away
             }
-
-            Match.objects.create(**insert)
-            self.stdout.write(self.style.SUCCESS(f"Matches/Rounds from {round.number} created successfully."))
             
+            Match.objects.create(**insert)
+            self.stdout.write(self.style.SUCCESS(f"Matches from {round.number}º round created successfully."))
+
+        for round in Round.objects.all():
+            aggregation = Match.objects.filter(round__number=round.number).aggregate(first_match=Min("date"), last_match=Max("date"))
+
+            round.first_match = aggregation["first_match"]
+            round.last_match  = aggregation["last_match"]
+
+            if datetime.today().date() > round.last_match.date():
+                round.closed = True
+                
+            round.save()
+
         self.stdout.write(self.style.SUCCESS("Matches/Rounds created successfully"))        
